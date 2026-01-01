@@ -1,0 +1,54 @@
+<!-- High Definition Favicon SVG -->
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="favYellow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFF00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFC107;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Black background -->
+  <rect width="64" height="64" fill="#000000"/>
+  
+  <!-- Main hexagon cluster -->
+  <g transform="translate(16, 12)">
+    <polygon points="8,2 12,4.5 12,9.5 8,12 4,9.5 4,4.5" 
+             fill="url(#favYellow)" 
+             stroke="#000000" 
+             stroke-width="0.5"/>
+  </g>
+  
+  <g transform="translate(24, 18)">
+    <polygon points="8,2 12,4.5 12,9.5 8,12 4,9.5 4,4.5" 
+             fill="url(#favYellow)" 
+             stroke="#000000" 
+             stroke-width="0.5"/>
+  </g>
+  
+  <!-- Small connecting hexagon -->
+  <g transform="translate(20, 15)">
+    <polygon points="4,1 6,2 6,4 4,5 2,4 2,2" 
+             fill="url(#favYellow)" 
+             stroke="#000000" 
+             stroke-width="0.3"/>
+  </g>
+  
+  <!-- Bottom hexagon -->
+  <g transform="translate(26, 36)">
+    <polygon points="6,1.5 9,3 9,6 6,7.5 3,6 3,3" 
+             fill="url(#favYellow)" 
+             stroke="#000000" 
+             stroke-width="0.5"/>
+  </g>
+  
+  <!-- Small decorative hexagons -->
+  <polygon points="44,16 46,17 46,19 44,20 42,19 42,17" 
+           fill="url(#favYellow)" 
+           stroke="#000000" 
+           stroke-width="0.3"/>
+           
+  <polygon points="12,40 14,41 14,43 12,44 10,43 10,41" 
+           fill="url(#favYellow)" 
+           stroke="#000000" 
+           stroke-width="0.3"/>
+</svg>

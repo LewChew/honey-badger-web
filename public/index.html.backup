@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honey Badger - AI Gift Delivery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/assets/honeycomb_badger_face.svg" type="image/svg+xml">
+    <link rel="alternate icon" href="/assets/honeycomb_badger_face.svg" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="/assets/honeycomb_badger_face.svg" alt="Honey Badger Avatar" class="logo-icon" id="headerLogo">
+                    <span class="logo-text">HONEY BADGER</span>
+                </div>
+                <div class="nav-buttons">
+                    <button class="btn-secondary" onclick="showModal('loginModal')">
+                        Login
+                    </button>
+                    <button class="btn-secondary" onclick="startSignupFlow()">
+                        Sign Up
+                    </button>
+                    <button class="btn-primary" onclick="showCreateAccountFlow()">
+                        Send a Badger
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Landing Page (Not Logged In) -->
+    <div id="landingPage">
+        <main>
+            <div class="container">
+                <section class="hero">
+                    <div class="hero-logo">
+                        <img src="/assets/honeycomb_badger_face.svg" alt="Honey Badger" class="hero-logo-image">
+                    </div>
+                    <h1 class="hero-heading">
+                        <span class="word-carousel">
+                            <span class="carousel-word active">Send</span>
+                            <span class="carousel-word">Unlock</span>
+                            <span class="carousel-word">Relish</span>
+                        </span>
+                        <span class="fixed-text">a Honey Badger</span>
+                    </h1>
+                    <p>Send AI-powered gift experiences that motivate, engage, and delight your loved ones</p>
+                    <div class="hero-buttons">
+                        <button class="btn-hero-badger" onclick="showCreateAccountFlow()">
+                            SEND A BADGER
+                        </button>
+                    </div>
+                </section>
+
+                <section class="features" id="features">
+                    <h2>How It Works</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                 <img src="/assets/Honey_badger_gift.svg" alt="Honey Badger Gift" class="gift-icon" id="bodyGift">
+                            </div>
+                            <h3>Choose a Gift</h3>
+                            <p>Select from endless options including gift cards, cash, photos, or custom messages. Set the perfect reward for your recipient.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <h3>Set the Unlock</h3>
+                            <p>Define how they unlock it: a simple photo, workout routine, daily tasks, or creative challenges.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                             <img src="/assets/honeycomb_badger_face.svg" alt="Honey Badger Avatar" class="logo-icon" id="bodyLogo">
+                            </div>
+                            <h3>Honey Badger Delivers</h3>
+                            <p>Our persistent Honey Badgers help motivate recipients to unlock gifts through the challenge via text, email, and more.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="examples">
+                    <h3>Real Examples</h3>
+                    
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h4>🎂 Birthday Surprise</h4>
+                        </div>
+                        <p><strong>Gift:</strong> $100 Venmo Gift Card</p>
+                        <p><strong>Challenge:</strong> Return a video saying hi and tell me your favorite ice cream</p>
+                        <p><strong>Honey Badger:</strong> "Hey! Someone special sent you a birthday surprise. All you need to do is send me a quick video..."</p>
+                    </div>
+
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h4>🏃‍♂️ Fitness Motivation</h4>
+                        </div>
+                        <p><strong>Gift:</strong> 3D Printer</p>
+                        <p><strong>Challenge:</strong> Work out and make your bed for 60 days straight</p>
+                        <p><strong>Honey Badger:</strong> "Day 1 of your epic journey! Your parent believes in you and I'm here to help you earn that 3D printer..."</p>
+                    </div>
+
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h4>💕 Relationship Fun</h4>
+                        </div>
+                        <p><strong>Gift:</strong> Special Photo</p>
+                        <p><strong>Challenge:</strong> Do a load of laundry</p>
+                        <p><strong>Honey Badger:</strong> "Your wife has something special waiting for you! Time to tackle that laundry pile..."</p>
+                    </div>
+                </section>
+                    <section class="gift-cards">
+                    <h3>Supported Gift Cards</h3>
+                    <div class="gift-cards-grid">
+                        <div class="gift-card">Dick's Sporting Goods</div>
+                        <div class="gift-card">Fortnite</div>
+                        <div class="gift-card">Sephora</div>
+                        <div class="gift-card">Lululemon</div>
+                        <div class="gift-card">Starbucks</div>
+                        <div class="gift-card">Dunkin'</div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Dashboard (Logged In) -->
+    <div id="dashboard" class="dashboard-container" style="display: none;">
+        <main>
+            <div class="container">
+
+                <div class="dashboard-top-section">
+                    <!-- Left Panel - Chatbot Carousel -->
+                    <div class="dashboard-sections-left">
+                        <!-- Carousel Container -->
+                        <div class="tv-carousel-container">
+                        <div class="activity-section send-section-collapsible">
+                            <div class="collapsible-header" onclick="toggleSendForm()">
+                                <h2 class="title-with-icon-small">
+                                    <img src="/assets/honeycomb_badger.svg" alt="Honey Badger" class="inline-badger-icon-small">
+                                    Send a Honey Badger
+                                </h2>
+                                <span class="expand-icon" id="sendFormExpandIcon">▼</span>
+                            </div>
+                            <div class="collapsible-content" id="sendFormContent" style="display: none;">
+                                <div class="send-panel-compact">
+                                    <p class="send-subtitle-compact">Deploy AI Honey Badger to your network</p>
+                            
+                            <form id="dashboardSendForm" class="send-form">
+                                <!-- Step 1: Basic Information (Always Visible) -->
+                                <div class="form-section basic-info">
+                                    <h3 class="section-title">📝 Basic Information</h3>
+                                    
+                                    <div class="form-group">
+                                        <label for="recipientName">Recipient Name:</label>
+                                        <input type="text" id="recipientName" name="recipientName" placeholder="Who's getting this gift?" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="recipientEmail">Email:</label>
+                                        <input type="email" id="recipientEmail" name="recipientEmail" placeholder="their.email@example.com" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="recipientPhone">Phone:</label>
+                                        <input type="tel" id="recipientPhone" name="recipientPhone" placeholder="+1 (555) 123-4567">
+                                        <small style="color: #aaa;">For SMS notifications</small>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="giftType">Gift Type:</label>
+                                        <select id="giftType" name="giftType" required onchange="handleGiftTypeChange()">
+                                            <option value="">Select gift type</option>
+                                            <option value="giftcard">🎁 Gift Card</option>
+                                            <option value="cash">💵 Cash (Venmo/PayPal)</option>
+                                            <option value="photo">📸 Photo/Video</option>
+                                            <option value="message">💌 Custom Message</option>
+                                            <option value="physical">📦 Physical Item</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Step 2: Type-Specific Details (Expandable) -->
+                                <div id="typeSpecificSection" class="form-section collapsed" style="display: none;">
+                                    <div class="section-header expandable" onclick="toggleSection('typeSpecific')">
+                                        <h3 class="section-title">
+                                            <span class="expand-icon">▶</span>
+                                            <span id="typeSpecificTitle">🎁 Gift Details</span>
+                                        </h3>
+                                        <span class="section-status" id="typeSpecificStatus">Click to configure</span>
+                                    </div>
+                                    
+                                    <div id="typeSpecificContent" class="section-content" style="display: none;">
+                                        <!-- Gift Card Options -->
+                                        <div id="giftCardDetails" class="type-details" style="display: none;">
+                                            <div class="form-group">
+                                                <label for="giftCardBrand">Choose Gift Card:</label>
+                                                <select id="giftCardBrand" name="giftCardBrand">
+                                                    <option value="">Select brand</option>
+                                                    <option value="amazon">Amazon</option>
+                                                    <option value="starbucks">Starbucks</option>
+                                                    <option value="dunkin">Dunkin'</option>
+                                                    <option value="dicks">Dick's Sporting Goods</option>
+                                                    <option value="fortnite">Fortnite</option>
+                                                    <option value="sephora">Sephora</option>
+                                                    <option value="lululemon">Lululemon</option>
+                                                    <option value="custom">Other (specify)</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="giftCardAmount">Amount:</label>
+                                                <input type="text" id="giftCardAmount" name="giftCardAmount" placeholder="$50">
+                                            </div>
+                                        </div>
+
+                                        <!-- Cash Options -->
+                                        <div id="cashDetails" class="type-details" style="display: none;">
+                                            <div class="form-group">
+                                                <label for="cashPlatform">Payment Platform:</label>
+                                                <select id="cashPlatform" name="cashPlatform">
+                                                    <option value="venmo">Venmo</option>
+                                                    <option value="paypal">PayPal</option>
+                                                    <option value="cashapp">Cash App</option>
+                                                    <option value="zelle">Zelle</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="cashAmount">Amount:</label>
+                                                <input type="text" id="cashAmount" name="cashAmount" placeholder="$100">
+                                            </div>
+                                        </div>
+
+                                        <!-- Photo/Video Options -->
+                                        <div id="photoDetails" class="type-details" style="display: none;">
+                                            <div class="form-group">
+                                                <label for="mediaDescription">What are you sharing?</label>
+                                                <textarea id="mediaDescription" name="mediaDescription" placeholder="Describe the photo/video you'll share"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <!-- Message Options -->
+                                        <div id="messageDetails" class="type-details" style="display: none;">
+                                            <div class="form-group">
+                                                <label for="customMessage">Your Message:</label>
+                                                <textarea id="customMessage" name="customMessage" placeholder="Write your special message here" rows="4"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <!-- Physical Item Options -->
+                                        <div id="physicalDetails" class="type-details" style="display: none;">
+                                            <div class="form-group">
+                                                <label for="itemDescription">Item Description:</label>
+                                                <input type="text" id="itemDescription" name="itemDescription" placeholder="e.g., Nintendo Switch, Concert Tickets">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="itemValue">Estimated Value:</label>
+                                                <input type="text" id="itemValue" name="itemValue" placeholder="$300">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Step 3: Challenge Configuration (Expandable) -->
+                                <div id="challengeSection" class="form-section collapsed" style="display: none;">
+                                    <div class="section-header expandable" onclick="toggleSection('challenge')">
+                                        <h3 class="section-title">
+                                            <span class="expand-icon">▶</span>
+                                            🎯 Challenge Setup
+                                        </h3>
+                                        <span class="section-status" id="challengeStatus">Click to define unlock requirements</span>
+                                    </div>
+                                    
+                                    <div id="challengeContent" class="section-content" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="challengeType">Challenge Type:</label>
+                                            <select id="challengeType" name="challengeType" onchange="updateChallengeOptions()">
+                                                <option value="simple">Simple Task</option>
+                                                <option value="photo">Photo Challenge</option>
+                                                <option value="video">Video Challenge</option>
+                                                <option value="fitness">Fitness Challenge</option>
+                                                <option value="multiday">Multi-Day Challenge</option>
+                                                <option value="custom">Custom Challenge</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="challengeDescription">Challenge Description:</label>
+                                            <textarea id="challengeDescription" name="challengeDescription" 
+                                                placeholder="What should they do to unlock this gift?" rows="3"></textarea>
+                                        </div>
+                                        
+                                        <div id="challengeDuration" class="form-group" style="display: none;">
+                                            <label for="duration">Duration:</label>
+                                            <select id="duration" name="duration">
+                                                <option value="1">1 Day</option>
+                                                <option value="7">7 Days</option>
+                                                <option value="14">14 Days</option>
+                                                <option value="30">30 Days</option>
+                                                <option value="60">60 Days</option>
+                                                <option value="custom">Custom</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="reminderFrequency">Reminder Frequency:</label>
+                                            <select id="reminderFrequency" name="reminderFrequency">
+                                                <option value="none">No Reminders</option>
+                                                <option value="daily">Daily</option>
+                                                <option value="every3days">Every 3 Days</option>
+                                                <option value="weekly">Weekly</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Step 4: Additional Options (Expandable) -->
+                                <div id="additionalSection" class="form-section collapsed" style="display: none;">
+                                    <div class="section-header expandable" onclick="toggleSection('additional')">
+                                        <h3 class="section-title">
+                                            <span class="expand-icon">▶</span>
+                                            ✨ Additional Options
+                                        </h3>
+                                        <span class="section-status">Optional settings</span>
+                                    </div>
+                                    
+                                    <div id="additionalContent" class="section-content" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="personalNote">Personal Note (Optional):</label>
+                                            <textarea id="personalNote" name="personalNote" 
+                                                placeholder="Add a personal message to accompany your gift" rows="2"></textarea>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox" id="notifyOnComplete" name="notifyOnComplete" checked>
+                                                <span class="checkmark"></span>
+                                                Notify me at all checkpoints along Honey Badger Journey to deliver gift.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Submit Button -->
+                                <div class="form-submit-section">
+                                    <button type="submit" class="btn-primary send-btn" id="sendBadgerBtn" disabled>
+                                        🚀 Send Honey Badger
+                                    </button>
+                                    <p class="submit-hint" id="submitHint">Select a gift type to continue</p>
+                                </div>
+                            </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Badgers In the Wild -->
+                        <div class="activity-section">
+                            <h2>📤 Badgers In the Wild</h2>
+                            <div id="sentBadgersList" class="badgers-list">
+                                <!-- Sent badgers will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Panel - Honey Badger TV and Network -->
+                    <div class="dashboard-tv-right">
+                        <!-- Carousel Container -->
+                        <div class="tv-carousel-container">
+                            <div class="tv-carousel">
+                                <!-- Chatbot Slide (Now First) -->
+                                <div class="carousel-slide active" id="chatbotSlide">
+                                    <div class="chatbot-inline-container">
+                                        <div class="chatbot-inline-header">
+                                            <h3 class="chatbot-inline-title">Chat with Honey Badger</h3>
+                                            <button class="expand-chat-btn" onclick="openChatbot()" title="Expand chat">⛶</button>
+                                        </div>
+
+                                        <div class="chatbot-inline-messages" id="inlineChatMessages">
+                                            <div class="chat-message bot-message">
+                                                <div class="message-content">
+                                                    <p>Hey there! I'm your Honey Badger assistant. How can I help you today?</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="chatbot-inline-input-container">
+                                            <form id="inlineChatForm" onsubmit="sendInlineMessage(event)">
+                                                <div class="chat-input-group-inline">
+                                                    <input
+                                                        type="text"
+                                                        id="inlineChatInput"
+                                                        placeholder="Type your message..."
+                                                        autocomplete="off"
+                                                    >
+                                                    <button type="submit" class="btn-paw-send" title="Send message">
+                                                        <svg viewBox="0 0 100 100" class="paw-icon">
+                                                            <!-- Main pad -->
+                                                            <ellipse cx="50" cy="65" rx="25" ry="20" fill="currentColor"/>
+                                                            <!-- Toe pads -->
+                                                            <ellipse cx="30" cy="35" rx="10" ry="12" fill="currentColor"/>
+                                                            <ellipse cx="50" cy="30" rx="10" ry="12" fill="currentColor"/>
+                                                            <ellipse cx="70" cy="35" rx="10" ry="12" fill="currentColor"/>
+                                                            <ellipse cx="50" cy="45" rx="8" ry="10" fill="currentColor"/>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- TV Slide -->
+                                <div class="carousel-slide" id="tvSlide">
+                                    <img src="/assets/Honey_Badger_tv.svg"
+                                         alt="Honey Badger TV"
+                                         class="tv-icon"
+                                         loading="eager"
+                                         onerror="console.error('Failed to load TV image'); this.style.border='2px solid red';"
+                                         onload="console.log('TV image loaded successfully');">
+                                </div>
+                            </div>
+
+                            <!-- Carousel Navigation Dots -->
+                            <div class="carousel-dots">
+                                <span class="dot active" onclick="goToSlide(0)"></span>
+                                <span class="dot" onclick="goToSlide(1)"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Your Network - Full Width Section -->
+                <div class="network-section-full-width">
+                    <div class="activity-section">
+                        <h2>🌍 Your Network</h2>
+                        <div id="networkList" class="badgers-list">
+                            <!-- Network will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h2>Welcome Back!</h2>
+                    <p class="modal-subtitle">Your Honey Badger awaits</p>
+                </div>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email:</label>
+                    <input type="email" id="loginEmail" name="loginEmail" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password:</label>
+                    <input type="password" id="loginPassword" name="loginPassword" required placeholder="Enter your password">
+                </div>
+                <p style="text-align: right; margin-top: -10px; margin-bottom: 15px;">
+                    <a href="#" onclick="closeModal('loginModal'); showModal('forgotPasswordModal');" style="color: #E2FF00; text-decoration: none; font-size: 0.9rem;">Forgot Password?</a>
+                </p>
+                <button type="submit" class="btn" style="width: 100%;">
+                    Login
+                </button>
+            </form>
+            <p style="text-align: center; margin-top: 15px; color: #ccc;">
+                New to Honey Badger? 
+                <a href="#" onclick="closeModal('loginModal'); startSignupFlow();" style="color: #E2FF00; text-decoration: none;">Create your account</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Signup Step 1: Email -->
+    <div id="signupStep1Modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signupStep1Modal')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h2>Join the Pack!</h2>
+                    <p class="modal-subtitle">Let's start with your email</p>
+                </div>
+            </div>
+            <form id="signupStep1Form">
+                <div class="form-group">
+                    <label for="signupEmail">Email Address:</label>
+                    <input type="email" id="signupEmail" name="signupEmail" required placeholder="Enter your email address" autocomplete="email">
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">
+                    Continue
+                </button>
+            </form>
+            <p style="text-align: center; margin-top: 15px; color: #ccc;">
+                Already have an account? 
+                <a href="#" onclick="closeModal('signupStep1Modal'); showModal('loginModal');" style="color: #E2FF00; text-decoration: none;">Login here</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Signup Step 2: Personal Info -->
+    <div id="signupStep2Modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signupStep2Modal')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h2>Tell us about yourself</h2>
+                    <p class="modal-subtitle">Personal information</p>
+                </div>
+            </div>
+            <form id="signupStep2Form">
+                <div class="form-group">
+                    <label for="signupName">Full Name:</label>
+                    <input type="text" id="signupName" name="signupName" required placeholder="Enter your full name" autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <label for="signupPhone">Phone Number (Optional):</label>
+                    <input type="tel" id="signupPhone" name="signupPhone" placeholder="+1 (555) 123-4567" autocomplete="tel">
+                    <small style="color: #aaa; font-size: 0.85rem;">Used for Honey Badger notifications</small>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" class="btn-secondary" onclick="goToSignupStep(1)">
+                        Back
+                    </button>
+                    <button type="submit" class="btn">
+                        Continue
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Step 3: Password -->
+    <div id="signupStep3Modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signupStep3Modal')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h2>Secure your account</h2>
+                    <p class="modal-subtitle">Create a strong password</p>
+                </div>
+            </div>
+            <form id="signupStep3Form">
+                <div class="form-group">
+                    <label for="signupPassword">Password:</label>
+                    <input type="password" id="signupPassword" name="signupPassword" required placeholder="Create a secure password" autocomplete="new-password">
+                    <small style="color: #aaa; font-size: 0.85rem;">Must be 6+ characters with uppercase, lowercase, and numbers</small>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm your password" autocomplete="new-password">
+                </div>
+                <div class="form-buttons">
+                    <button type="button" class="btn-secondary" onclick="goToSignupStep(2)">
+                        Back
+                    </button>
+                    <button type="submit" class="btn">
+                        Continue
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Step 4: Review & Complete -->
+    <div id="signupStep4Modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signupStep4Modal')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h2>Almost done!</h2>
+                    <p class="modal-subtitle">Review your information</p>
+                </div>
+            </div>
+            <div class="review-info">
+                <div class="review-item">
+                    <strong>Email:</strong>
+                    <span id="reviewEmail"></span>
+                </div>
+                <div class="review-item">
+                    <strong>Name:</strong>
+                    <span id="reviewName"></span>
+                </div>
+                <div class="review-item">
+                    <strong>Phone:</strong>
+                    <span id="reviewPhone"></span>
+                </div>
+            </div>
+            <form id="signupStep4Form">
+                <div class="terms-section">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="agreeTerms" required>
+                        <span class="checkmark"></span>
+                        I agree to the <a href="#" style="color: #E2FF00;">Terms of Service</a> and <a href="#" style="color: #E2FF00;">Privacy Policy</a>
+                    </label>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" class="btn-secondary" onclick="goToSignupStep(3)">
+                        Back
+                    </button>
+                    <button type="submit" class="btn" id="createAccountBtn">
+                        Create Account
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Chatbot Modal -->
+    <div id="chatbotModal" class="modal chatbot-modal">
+        <div class="modal-content chatbot-modal-content">
+            <span class="close" onclick="closeChatbot()">&times;</span>
+            <div class="modal-header">
+                <div class="chatbot-header">
+                    <img src="/assets/honeycomb_badger_face.svg" alt="Honey Badger" class="chatbot-header-icon">
+                    <div class="chatbot-header-text">
+                        <h2>Honey Badger Chat</h2>
+                        <p class="modal-subtitle">Your AI assistant is here to help</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="chat-message bot-message">
+                    <div class="message-avatar">
+                        <img src="/assets/honeycomb_badger_face.svg" alt="Bot">
+                    </div>
+                    <div class="message-content">
+                        <p>Hey there! I'm your Honey Badger assistant. How can I help you today?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chatbot-input-container">
+                <form id="chatbotForm" onsubmit="sendMessage(event)">
+                    <div class="chat-input-group">
+                        <input
+                            type="text"
+                            id="chatInput"
+                            placeholder="Type your message here..."
+                            autocomplete="off"
+                            required
+                        >
+                        <button type="submit" class="btn-chat-send">
+                            Send
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div id="forgotPasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('forgotPasswordModal')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h2>Reset Your Password</h2>
+                    <p class="modal-subtitle">Enter your email to receive a reset token</p>
+                </div>
+            </div>
+            <form id="forgotPasswordForm">
+                <div class="form-group">
+                    <label for="resetEmail">Email Address:</label>
+                    <input type="email" id="resetEmail" name="resetEmail" required placeholder="Enter your email address">
+                    <small style="color: #aaa; font-size: 0.85rem;">We'll send you a password reset token via the console (email integration coming soon)</small>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">
+                    Request Reset Token
+                </button>
+            </form>
+            <p style="text-align: center; margin-top: 15px; color: #ccc;">
+                Remember your password?
+                <a href="#" onclick="closeModal('forgotPasswordModal'); showModal('loginModal');" style="color: #E2FF00; text-decoration: none;">Back to Login</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Reset Password Modal -->
+    <div id="resetPasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('resetPasswordModal')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h2>Enter New Password</h2>
+                    <p class="modal-subtitle">Complete your password reset</p>
+                </div>
+            </div>
+            <form id="resetPasswordForm">
+                <div class="form-group">
+                    <label for="resetToken">Reset Token:</label>
+                    <input type="text" id="resetToken" name="resetToken" required placeholder="Enter the reset token from console">
+                    <small style="color: #aaa; font-size: 0.85rem;">Check your browser console or server logs for the token</small>
+                </div>
+                <div class="form-group">
+                    <label for="newPassword">New Password:</label>
+                    <input type="password" id="newPassword" name="newPassword" required placeholder="Create a new password">
+                    <small style="color: #aaa; font-size: 0.85rem;">Must be 6+ characters with uppercase, lowercase, and numbers</small>
+                </div>
+                <div class="form-group">
+                    <label for="confirmNewPassword">Confirm New Password:</label>
+                    <input type="password" id="confirmNewPassword" name="confirmNewPassword" required placeholder="Confirm your new password">
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">
+                    Reset Password
+                </button>
+            </form>
+            <p style="text-align: center; margin-top: 15px; color: #ccc;">
+                Don't have a token?
+                <a href="#" onclick="closeModal('resetPasswordModal'); showModal('forgotPasswordModal');" style="color: #E2FF00; text-decoration: none;">Request one</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "honey-badger-web",
+  "version": "1.0.0",
+  "description": "Honey Badger AI Gifts - Web Frontend",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

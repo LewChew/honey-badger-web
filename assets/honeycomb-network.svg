@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Honeycomb hexagons in network pattern -->
+  <g fill="none" stroke="#E2FF00" stroke-width="3">
+    <!-- Center hexagon -->
+    <path d="M50 30 L62 37.5 L62 52.5 L50 60 L38 52.5 L38 37.5 Z"/>
+
+    <!-- Top hexagon -->
+    <path d="M50 10 L62 17.5 L62 32.5 L50 40 L38 32.5 L38 17.5 Z"/>
+
+    <!-- Bottom hexagon -->
+    <path d="M50 50 L62 57.5 L62 72.5 L50 80 L38 72.5 L38 57.5 Z"/>
+
+    <!-- Top-right hexagon -->
+    <path d="M68 20 L80 27.5 L80 42.5 L68 50 L56 42.5 L56 27.5 Z"/>
+
+    <!-- Bottom-right hexagon -->
+    <path d="M68 60 L80 67.5 L80 82.5 L68 90 L56 82.5 L56 67.5 Z"/>
+
+    <!-- Top-left hexagon -->
+    <path d="M32 20 L44 27.5 L44 42.5 L32 50 L20 42.5 L20 27.5 Z"/>
+
+    <!-- Bottom-left hexagon -->
+    <path d="M32 60 L44 67.5 L44 82.5 L32 90 L20 82.5 L20 67.5 Z"/>
+  </g>
+
+  <!-- Connection dots at center -->
+  <circle cx="50" cy="45" r="3" fill="#E2FF00"/>
+  <circle cx="50" cy="25" r="2" fill="#E2FF00"/>
+  <circle cx="50" cy="65" r="2" fill="#E2FF00"/>
+  <circle cx="62" cy="35" r="2" fill="#E2FF00"/>
+  <circle cx="38" cy="35" r="2" fill="#E2FF00"/>
+</svg>
