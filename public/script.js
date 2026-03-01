@@ -376,8 +376,8 @@ function updateAuthState() {
         
         // Reset header buttons
         headerButtons.innerHTML = `
-            <a href="#about" class="nav-link">How It Works</a>
-            <a href="#examples" class="nav-link">Examples</a>
+            <a href="#how-it-works" class="nav-link">How It Works</a>
+            <a href="#gift-cards" class="nav-link">Gift Cards</a>
             <a href="#get-app" class="nav-link">Get the App</a>
             <button class="btn-secondary" onclick="showModal('loginModal')">
                 Login
@@ -506,10 +506,49 @@ function startWordCarousel() {
     }, 2000);
 }
 
+// Hero TV Carousel
+function initHeroTVCarousel() {
+    const slides = document.querySelectorAll('.hero-tv-slide');
+    const dots = document.querySelectorAll('.hero-tv-dot');
+    if (!slides.length) return;
+
+    let current = 0;
+    let timer = null;
+
+    function goTo(index) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = index;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+    }
+
+    function next() {
+        goTo((current + 1) % slides.length);
+    }
+
+    function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(next, 5000);
+    }
+
+    dots.forEach(dot => {
+        dot.addEventListener('click', function() {
+            goTo(parseInt(this.dataset.index, 10));
+            resetTimer();
+        });
+    });
+
+    resetTimer();
+}
+
 // Form submission handlers
 document.addEventListener('DOMContentLoaded', function() {
     // Start word carousel animation
     startWordCarousel();
+
+    // Start hero TV carousel
+    initHeroTVCarousel();
     
     // Check if user is already logged in
     if (authToken) {

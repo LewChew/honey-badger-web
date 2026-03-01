@@ -20,8 +20,8 @@
                     <span></span><span></span><span></span>
                 </button>
                 <div class="nav-buttons" id="navButtons">
-                    <a href="#about" class="nav-link">How It Works</a>
-                    <a href="#examples" class="nav-link">Examples</a>
+                    <a href="#how-it-works" class="nav-link">How It Works</a>
+                    <a href="#gift-cards" class="nav-link">Gift Cards</a>
                     <a href="#get-app" class="nav-link">Get the App</a>
                     <button class="btn-secondary" onclick="showModal('loginModal')">
                         Login
@@ -39,129 +39,90 @@
         <!-- Hero Section -->
         <section class="marketing-section hero-section">
             <div class="container">
-                <div class="hero-grid">
-                    <div class="hero-text">
-                        <h1 class="hero-heading">
-                            <span class="word-carousel">
-                                <span class="carousel-word active">Send</span>
-                                <span class="carousel-word">Unlock</span>
-                                <span class="carousel-word">Relish</span>
-                            </span>
-                            <span class="fixed-text">a Honey Badger</span>
-                        </h1>
-                        <p class="hero-subtitle">AI-powered gift experiences that motivate, engage, and delight your loved ones</p>
-                        <div class="hero-cta">
-                            <a href="#get-app" class="app-store-badge-link">
-                                <img src="/assets/app-store-badge.svg" alt="Download on the App Store" class="app-store-badge">
-                                <span class="coming-soon-label">Coming Soon</span>
-                            </a>
-                            <a href="#waitlist" class="btn-secondary get-notified-link">Get Notified</a>
+                <div class="hero-centered">
+                    <h1 class="hero-heading" style="text-align:center;">
+                        <span class="word-carousel">
+                            <span class="carousel-word active">Send</span>
+                            <span class="carousel-word">Unlock</span>
+                            <span class="carousel-word">Relish</span>
+                        </span>
+                        <span class="fixed-text">a Honey Badger</span>
+                    </h1>
+                    <p class="hero-subtitle" style="text-align:center;">AI-powered gift challenges that delight.</p>
+
+                    <!-- TV Carousel -->
+                    <div class="hero-tv-frame" id="heroTvFrame">
+                        <div class="hero-tv-slides" id="heroTvSlides">
+                            <div class="hero-tv-slide active">
+                                <video autoplay muted loop playsinline>
+                                    <source src="/assets/honeybadgervid1.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="hero-tv-slide">
+                                <img src="/assets/Honey_Badger_tv.svg" alt="Honey Badger TV">
+                            </div>
+                            <div class="hero-tv-slide">
+                                <img src="/assets/CyberBadger.png" alt="Cyber Badger">
+                            </div>
+                            <div class="hero-tv-slide">
+                                <img src="/assets/Honey_badger_gift.svg" alt="Honey Badger Gift">
+                            </div>
+                            <div class="hero-tv-slide">
+                                <img src="/assets/honey_badger.svg" alt="Honey Badger">
+                            </div>
+                            <div class="hero-tv-slide">
+                                <img src="/assets/HB-logo.svg" alt="HB Logo">
+                            </div>
                         </div>
+                        <div class="hero-tv-scanline"></div>
                     </div>
-                    <div class="hero-video">
-                        <video class="hero-logo-image" autoplay muted loop playsinline>
-                            <source src="/assets/honeybadgervid1.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                    <div class="hero-tv-dots" id="heroTvDots">
+                        <button class="hero-tv-dot active" data-index="0"></button>
+                        <button class="hero-tv-dot" data-index="1"></button>
+                        <button class="hero-tv-dot" data-index="2"></button>
+                        <button class="hero-tv-dot" data-index="3"></button>
+                        <button class="hero-tv-dot" data-index="4"></button>
+                        <button class="hero-tv-dot" data-index="5"></button>
+                    </div>
+
+                    <div class="hero-cta" style="justify-content:center;">
+                        <a href="#get-app" class="app-store-badge-link">
+                            <img src="/assets/app-store-badge.svg" alt="Download on the App Store" class="app-store-badge">
+                            <span class="coming-soon-label">Coming Soon</span>
+                        </a>
+                        <a href="#waitlist" class="btn-secondary get-notified-link">Get Notified</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- What is Honey Badger -->
-        <section class="marketing-section" id="about">
-            <div class="container">
-                <h2 class="section-heading">What is Honey Badger?</h2>
-                <p class="section-subheading">The world's most persistent gift delivery platform</p>
-                <div class="highlight-cards">
-                    <div class="highlight-card">
-                        <div class="highlight-icon">
-                            <img src="/assets/honeycomb_badger_face.svg" alt="AI Delivery" class="highlight-icon-img">
-                        </div>
-                        <h3>AI-Powered Delivery</h3>
-                        <p>Our relentless AI Honey Badger reaches your recipient via text, email, and more until the gift is claimed.</p>
-                    </div>
-                    <div class="highlight-card">
-                        <div class="highlight-icon">
-                            <img src="/assets/Honey_badger_gift.svg" alt="Challenge Gifting" class="highlight-icon-img">
-                        </div>
-                        <h3>Challenge-Based Gifting</h3>
-                        <p>Set fun challenges your recipient must complete to unlock their gift — from simple tasks to multi-day missions.</p>
-                    </div>
-                    <div class="highlight-card">
-                        <div class="highlight-icon">
-                            <img src="/assets/honeycomb-network2.jpg" alt="Multi-Channel" class="highlight-icon-img" style="border-radius:50%;">
-                        </div>
-                        <h3>Multi-Channel Outreach</h3>
-                        <p>Honey Badger doesn't give up. It reaches out through SMS, email, and push notifications to deliver your gift.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- How It Works -->
         <section class="marketing-section marketing-section-alt" id="how-it-works">
             <div class="container">
                 <h2 class="section-heading">How It Works</h2>
-                <div class="step-cards">
-                    <div class="step-card">
-                        <div class="step-badge">1</div>
-                        <div class="step-icon">
-                            <img src="/assets/Honey_badger_gift.svg" alt="Choose a Gift" class="step-icon-img">
-                        </div>
-                        <h3>Choose a Gift</h3>
-                        <p>Select from endless options including gift cards, cash, photos, or custom messages. Set the perfect reward.</p>
+                <div class="steps-strip">
+                    <div class="step-item">
+                        <span class="step-num">1</span>
+                        <img src="/assets/Honey_badger_gift.svg" alt="Choose a Gift" class="step-item-icon">
+                        <span class="step-label">Choose a Gift</span>
                     </div>
-                    <div class="step-card">
-                        <div class="step-badge">2</div>
-                        <div class="step-icon"><span>🎯</span></div>
-                        <h3>Set the Unlock</h3>
-                        <p>Define how they unlock it: a simple photo, workout routine, daily tasks, or creative challenges.</p>
+                    <div class="step-connector"></div>
+                    <div class="step-item">
+                        <span class="step-num">2</span>
+                        <span class="step-item-emoji">🎯</span>
+                        <span class="step-label">Set the Unlock</span>
                     </div>
-                    <div class="step-card">
-                        <div class="step-badge">3</div>
-                        <div class="step-icon">
-                            <img src="/assets/honeycomb_badger_face.svg" alt="Honey Badger Delivers" class="step-icon-img">
-                        </div>
-                        <h3>Honey Badger Delivers</h3>
-                        <p>Our persistent Honey Badgers motivate recipients to unlock gifts through the challenge via text, email, and more.</p>
+                    <div class="step-connector"></div>
+                    <div class="step-item">
+                        <span class="step-num">3</span>
+                        <img src="/assets/honeycomb_badger_face.svg" alt="Honey Badger Delivers" class="step-item-icon">
+                        <span class="step-label">Badger Delivers</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- See It in Action -->
-        <section class="marketing-section" id="examples">
-            <div class="container">
-                <h2 class="section-heading">See It in Action</h2>
-                <div class="example-cards">
-                    <div class="example-card-marketing">
-                        <div class="example-card-header">🎂 Birthday Surprise</div>
-                        <div class="example-card-body">
-                            <p><strong>Gift:</strong> $100 Venmo Gift Card</p>
-                            <p><strong>Challenge:</strong> Return a video saying hi and tell me your favorite ice cream</p>
-                            <p class="example-badger-msg"><strong>Honey Badger:</strong> "Hey! Someone special sent you a birthday surprise. All you need to do is send me a quick video..."</p>
-                        </div>
-                    </div>
-                    <div class="example-card-marketing">
-                        <div class="example-card-header">🏃‍♂️ Fitness Motivation</div>
-                        <div class="example-card-body">
-                            <p><strong>Gift:</strong> 3D Printer</p>
-                            <p><strong>Challenge:</strong> Work out and make your bed for 60 days straight</p>
-                            <p class="example-badger-msg"><strong>Honey Badger:</strong> "Day 1 of your epic journey! Your parent believes in you and I'm here to help you earn that 3D printer..."</p>
-                        </div>
-                    </div>
-                    <div class="example-card-marketing">
-                        <div class="example-card-header">💕 Relationship Fun</div>
-                        <div class="example-card-body">
-                            <p><strong>Gift:</strong> Special Photo</p>
-                            <p><strong>Challenge:</strong> Do a load of laundry</p>
-                            <p class="example-badger-msg"><strong>Honey Badger:</strong> "Your wife has something special waiting for you! Time to tackle that laundry pile..."</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Supported Gift Cards -->
         <section class="marketing-section marketing-section-alt" id="gift-cards">
@@ -188,7 +149,7 @@
                 <div class="get-app-grid">
                     <div class="get-app-text">
                         <h2 class="section-heading" style="text-align:left;">Get the Honey Badger App</h2>
-                        <p class="get-app-desc">Send AI-powered gift challenges right from your phone. Available soon on the App Store.</p>
+                        <p class="get-app-desc">Coming soon to the App Store.</p>
                         <a href="#waitlist" class="app-store-badge-link">
                             <img src="/assets/app-store-badge.svg" alt="Download on the App Store" class="app-store-badge">
                             <span class="coming-soon-label">Coming Soon</span>
@@ -231,8 +192,7 @@
                     </div>
                     <div class="footer-links">
                         <h4>Product</h4>
-                        <a href="#about">How It Works</a>
-                        <a href="#examples">Examples</a>
+                        <a href="#how-it-works">How It Works</a>
                         <a href="#gift-cards">Gift Cards</a>
                     </div>
                     <div class="footer-links">

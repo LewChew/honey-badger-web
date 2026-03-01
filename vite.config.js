@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   root: 'public',
-  publicDir: '../assets',
+  publicDir: false,
   server: {
     port: 5173,
     proxy: {

@@ -2735,19 +2735,15 @@ header {
     margin-bottom: 50px;
 }
 
-/* Hero section - two column */
+/* Hero section - centered with TV carousel */
 .hero-section {
     padding-top: 60px;
     padding-bottom: 80px;
 }
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
-}
-.hero-text .hero-heading {
-    text-align: left;
+.hero-centered {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
 }
 .hero-subtitle {
     color: #ccc;
@@ -2762,16 +2758,90 @@ header {
     gap: 20px;
     flex-wrap: wrap;
 }
-.hero-video {
+
+/* Hero TV Frame */
+.hero-tv-frame {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    aspect-ratio: 16 / 10;
+    margin: 0 auto 20px;
+    border: 4px solid #E2FF00;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #000;
+    box-shadow:
+        0 0 30px rgba(226, 255, 0, 0.25),
+        0 10px 40px rgba(0, 0, 0, 0.6),
+        inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+.hero-tv-slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.hero-tv-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+    background: #000;
+}
+.hero-tv-slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+.hero-tv-slide img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+.hero-tv-slide video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.hero-tv-scanline {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.06) 2px,
+        rgba(0, 0, 0, 0.06) 4px
+    );
+}
+
+/* TV Dot Indicators */
+.hero-tv-dots {
     display: flex;
     justify-content: center;
-    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
 }
-.hero-video .hero-logo-image {
-    width: 100%;
-    max-width: 480px;
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(226, 255, 0, 0.1);
+.hero-tv-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(226, 255, 0, 0.4);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+.hero-tv-dot.active {
+    background: #E2FF00;
+    border-color: #E2FF00;
+    box-shadow: 0 0 8px rgba(226, 255, 0, 0.6);
+}
+.hero-tv-dot:hover {
+    border-color: #E2FF00;
 }
 
 /* App Store badge */
@@ -2804,77 +2874,23 @@ header {
     font-size: 0.95rem;
 }
 
-/* Highlight cards (What is Honey Badger) */
-.highlight-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 50px;
-}
-.highlight-card {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(226, 255, 0, 0.1);
-    border-radius: 16px;
-    padding: 35px 25px;
-    text-align: center;
-    backdrop-filter: blur(10px);
-    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-}
-.highlight-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(226, 255, 0, 0.3);
-    box-shadow: 0 10px 30px rgba(226, 255, 0, 0.08);
-}
-.highlight-icon {
-    width: 70px;
-    height: 70px;
-    margin: 0 auto 20px;
+/* Steps strip (How It Works) */
+.steps-strip {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 0;
+    margin-top: 40px;
+    flex-wrap: wrap;
 }
-.highlight-icon-img {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 120px;
 }
-.highlight-card h3 {
-    color: #E2FF00;
-    margin-bottom: 12px;
-    font-size: 1.15rem;
-}
-.highlight-card p {
-    color: #bbb;
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-/* Step cards (How It Works) */
-.step-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 50px;
-}
-.step-card {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(226, 255, 0, 0.1);
-    border-radius: 16px;
-    padding: 35px 25px;
-    text-align: center;
-    position: relative;
-    backdrop-filter: blur(10px);
-    transition: transform 0.3s, border-color 0.3s;
-}
-.step-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(226, 255, 0, 0.3);
-}
-.step-badge {
-    position: absolute;
-    top: -16px;
-    left: 50%;
-    transform: translateX(-50%);
+.step-num {
     width: 32px;
     height: 32px;
     background: #E2FF00;
@@ -2886,72 +2902,31 @@ header {
     align-items: center;
     justify-content: center;
 }
-.step-icon {
-    width: 70px;
-    height: 70px;
-    margin: 10px auto 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-}
-.step-icon-img {
-    width: 60px;
-    height: 60px;
+.step-item-icon {
+    width: 50px;
+    height: 50px;
     object-fit: contain;
 }
-.step-card h3 {
-    color: #E2FF00;
-    margin-bottom: 12px;
-    font-size: 1.15rem;
+.step-item-emoji {
+    font-size: 2.5rem;
+    line-height: 1;
+    height: 50px;
+    display: flex;
+    align-items: center;
 }
-.step-card p {
-    color: #bbb;
+.step-label {
+    color: #E2FF00;
     font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-/* Example cards (See It In Action) */
-.example-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 50px;
-}
-.example-card-marketing {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(226, 255, 0, 0.1);
-    border-radius: 16px;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-    transition: transform 0.3s, border-color 0.3s;
-}
-.example-card-marketing:hover {
-    transform: translateY(-5px);
-    border-color: rgba(226, 255, 0, 0.3);
-}
-.example-card-header {
-    background: rgba(226, 255, 0, 0.1);
-    padding: 16px 24px;
-    font-size: 1.15rem;
     font-weight: 600;
-    color: #E2FF00;
+    text-align: center;
 }
-.example-card-body {
-    padding: 24px;
-}
-.example-card-body p {
-    color: #ccc;
-    font-size: 0.93rem;
-    margin-bottom: 10px;
-    line-height: 1.5;
-}
-.example-card-body p:last-child {
-    margin-bottom: 0;
-}
-.example-badger-msg {
-    font-style: italic;
-    color: #aaa !important;
+.step-connector {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(226,255,0,0.1), rgba(226,255,0,0.5), rgba(226,255,0,0.1));
+    margin: 0 10px;
+    align-self: center;
+    margin-top: -20px;
 }
 
 /* Gift cards grid (marketing) */
@@ -3145,31 +3120,22 @@ header {
         text-align: center;
     }
 
-    .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        text-align: center;
+    .hero-centered {
+        max-width: 100%;
     }
-    .hero-text .hero-heading {
-        text-align: center;
+    .hero-tv-frame {
+        max-width: 100%;
     }
-    .hero-cta {
-        justify-content: center;
+    .steps-strip {
+        flex-direction: column;
+        gap: 10px;
     }
-    .hero-video {
-        order: -1;
-    }
-    .hero-video .hero-logo-image {
-        max-width: 340px;
-    }
-
-    .highlight-cards,
-    .step-cards,
-    .example-cards {
-        grid-template-columns: 1fr;
-        max-width: 480px;
-        margin-left: auto;
-        margin-right: auto;
+    .step-connector {
+        width: 2px;
+        height: 30px;
+        margin: 0;
+        margin-top: 0;
+        background: linear-gradient(180deg, rgba(226,255,0,0.1), rgba(226,255,0,0.5), rgba(226,255,0,0.1));
     }
 
     .get-app-grid {
@@ -3215,14 +3181,8 @@ header {
         font-size: 1.5rem;
     }
 
-    .highlight-cards,
-    .step-cards,
-    .example-cards {
-        gap: 20px;
-    }
-    .highlight-card,
-    .step-card {
-        padding: 25px 20px;
+    .steps-strip {
+        gap: 8px;
     }
 
     .waitlist-input-group {
