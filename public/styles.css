@@ -2669,3 +2669,581 @@ header {
 .send-badger-form .form-step {
     padding: 0 0.5rem;
 }
+
+/* ======================================
+   MARKETING PAGE STYLES
+   ====================================== */
+
+/* Navigation anchor links */
+.nav-link {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+    padding: 8px 4px;
+}
+.nav-link:hover {
+    color: #E2FF00;
+}
+
+/* Mobile hamburger toggle */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 101;
+}
+.mobile-menu-toggle span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background: #E2FF00;
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Marketing sections */
+.marketing-section {
+    padding: 80px 0;
+}
+.marketing-section-alt {
+    background: rgba(226, 255, 0, 0.03);
+}
+.section-heading {
+    text-align: center;
+    color: #E2FF00;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+.section-subheading {
+    text-align: center;
+    color: #aaa;
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+}
+
+/* Hero section - two column */
+.hero-section {
+    padding-top: 60px;
+    padding-bottom: 80px;
+}
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+.hero-text .hero-heading {
+    text-align: left;
+}
+.hero-subtitle {
+    color: #ccc;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+.hero-cta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.hero-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero-video .hero-logo-image {
+    width: 100%;
+    max-width: 480px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(226, 255, 0, 0.1);
+}
+
+/* App Store badge */
+.app-store-badge-link {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+}
+.app-store-badge {
+    height: 44px;
+    width: auto;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+.app-store-badge-link:hover .app-store-badge {
+    opacity: 1;
+}
+.coming-soon-label {
+    font-size: 0.7rem;
+    color: #E2FF00;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+.get-notified-link {
+    text-decoration: none;
+    padding: 10px 24px;
+    font-size: 0.95rem;
+}
+
+/* Highlight cards (What is Honey Badger) */
+.highlight-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+.highlight-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(226, 255, 0, 0.1);
+    border-radius: 16px;
+    padding: 35px 25px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+.highlight-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(226, 255, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(226, 255, 0, 0.08);
+}
+.highlight-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.highlight-icon-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+.highlight-card h3 {
+    color: #E2FF00;
+    margin-bottom: 12px;
+    font-size: 1.15rem;
+}
+.highlight-card p {
+    color: #bbb;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Step cards (How It Works) */
+.step-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+.step-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(226, 255, 0, 0.1);
+    border-radius: 16px;
+    padding: 35px 25px;
+    text-align: center;
+    position: relative;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s, border-color 0.3s;
+}
+.step-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(226, 255, 0, 0.3);
+}
+.step-badge {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 32px;
+    background: #E2FF00;
+    color: #0a0a0a;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.step-icon {
+    width: 70px;
+    height: 70px;
+    margin: 10px auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+.step-icon-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+.step-card h3 {
+    color: #E2FF00;
+    margin-bottom: 12px;
+    font-size: 1.15rem;
+}
+.step-card p {
+    color: #bbb;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Example cards (See It In Action) */
+.example-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+.example-card-marketing {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(226, 255, 0, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s, border-color 0.3s;
+}
+.example-card-marketing:hover {
+    transform: translateY(-5px);
+    border-color: rgba(226, 255, 0, 0.3);
+}
+.example-card-header {
+    background: rgba(226, 255, 0, 0.1);
+    padding: 16px 24px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #E2FF00;
+}
+.example-card-body {
+    padding: 24px;
+}
+.example-card-body p {
+    color: #ccc;
+    font-size: 0.93rem;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+.example-card-body p:last-child {
+    margin-bottom: 0;
+}
+.example-badger-msg {
+    font-style: italic;
+    color: #aaa !important;
+}
+
+/* Gift cards grid (marketing) */
+.gift-cards-grid-marketing {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 40px;
+}
+.gift-card-tag {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(226, 255, 0, 0.15);
+    border-radius: 30px;
+    padding: 10px 24px;
+    color: #ddd;
+    font-size: 0.95rem;
+    transition: border-color 0.2s, background 0.2s;
+}
+.gift-card-tag:hover {
+    border-color: rgba(226, 255, 0, 0.4);
+    background: rgba(226, 255, 0, 0.06);
+}
+
+/* Get the App section */
+.get-app-section {
+    background: linear-gradient(135deg, rgba(226, 255, 0, 0.05) 0%, rgba(0,0,0,0) 100%);
+}
+.get-app-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+.get-app-desc {
+    color: #bbb;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+.get-app-image {
+    display: flex;
+    justify-content: center;
+}
+.get-app-badger {
+    max-width: 350px;
+    width: 100%;
+    border-radius: 16px;
+    filter: drop-shadow(0 10px 30px rgba(226, 255, 0, 0.15));
+}
+
+/* Waitlist section */
+.waitlist-container {
+    max-width: 520px;
+    margin: 0 auto;
+    text-align: center;
+}
+.waitlist-form {
+    margin-top: 30px;
+}
+.waitlist-input-group {
+    display: flex;
+    gap: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(226, 255, 0, 0.2);
+}
+.waitlist-input-group input {
+    flex: 1;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+}
+.waitlist-input-group input::placeholder {
+    color: #777;
+}
+.waitlist-input-group .btn-primary {
+    border-radius: 0;
+    padding: 14px 28px;
+    white-space: nowrap;
+    border: none;
+}
+.waitlist-message {
+    margin-top: 14px;
+    font-size: 0.9rem;
+    color: #E2FF00;
+}
+.waitlist-message.error {
+    color: #ff6b6b;
+}
+
+/* Footer */
+.site-footer {
+    background: rgba(0, 0, 0, 0.6);
+    border-top: 1px solid rgba(226, 255, 0, 0.08);
+    padding: 60px 0 30px;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #E2FF00;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+.footer-logo-icon {
+    width: 35px;
+    height: 35px;
+}
+.footer-tagline {
+    color: #888;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.footer-links h4 {
+    color: #E2FF00;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+.footer-links a {
+    color: #999;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+.footer-links a:hover {
+    color: #E2FF00;
+}
+.footer-app h4 {
+    color: #E2FF00;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 20px;
+    text-align: center;
+}
+.footer-bottom p {
+    color: #666;
+    font-size: 0.85rem;
+}
+
+/* ======================================
+   MARKETING RESPONSIVE STYLES
+   ====================================== */
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .nav-buttons {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.97);
+        flex-direction: column;
+        padding: 20px;
+        gap: 12px;
+        border-bottom: 1px solid rgba(226, 255, 0, 0.1);
+    }
+    .nav-buttons.mobile-open {
+        display: flex !important;
+    }
+    .nav-buttons .nav-link,
+    .nav-buttons button,
+    .nav-buttons a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+    .hero-text .hero-heading {
+        text-align: center;
+    }
+    .hero-cta {
+        justify-content: center;
+    }
+    .hero-video {
+        order: -1;
+    }
+    .hero-video .hero-logo-image {
+        max-width: 340px;
+    }
+
+    .highlight-cards,
+    .step-cards,
+    .example-cards {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .get-app-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+    }
+    .get-app-grid .section-heading {
+        text-align: center !important;
+    }
+    .get-app-badger {
+        max-width: 260px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    .marketing-section {
+        padding: 50px 0;
+    }
+    .section-heading {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-heading {
+        font-size: 1.8rem;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .marketing-section {
+        padding: 40px 0;
+    }
+    .section-heading {
+        font-size: 1.5rem;
+    }
+
+    .highlight-cards,
+    .step-cards,
+    .example-cards {
+        gap: 20px;
+    }
+    .highlight-card,
+    .step-card {
+        padding: 25px 20px;
+    }
+
+    .waitlist-input-group {
+        flex-direction: column;
+    }
+    .waitlist-input-group .btn-primary {
+        border-radius: 0 0 8px 8px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    .footer-brand {
+        grid-column: auto;
+    }
+
+    .gift-cards-grid-marketing {
+        gap: 10px;
+    }
+    .gift-card-tag {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+}

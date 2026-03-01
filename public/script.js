@@ -217,14 +217,19 @@ function updateReviewInfo() {
     document.getElementById('reviewPhone').textContent = signupData.phone || 'Not provided';
 }
 
-// Function called by "Send a Badger" buttons
+// Function called by "Send a Badger" / "Get the App" buttons
 function showCreateAccountFlow() {
     if (currentUser) {
         // User is already logged in, just scroll to dashboard
         document.getElementById('dashboard').scrollIntoView({ behavior: 'smooth' });
     } else {
-        // User not logged in, start signup flow
-        startSignupFlow();
+        // User not logged in, scroll to app download section
+        const appSection = document.getElementById('get-app');
+        if (appSection) {
+            appSection.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            startSignupFlow();
+        }
     }
 }
 
@@ -371,12 +376,15 @@ function updateAuthState() {
         
         // Reset header buttons
         headerButtons.innerHTML = `
+            <a href="#about" class="nav-link">How It Works</a>
+            <a href="#examples" class="nav-link">Examples</a>
+            <a href="#get-app" class="nav-link">Get the App</a>
             <button class="btn-secondary" onclick="showModal('loginModal')">
                 Login
             </button>
-            <button class="btn-primary" onclick="showCreateAccountFlow()">
-                Send a Badger
-            </button>
+            <a href="#get-app" class="btn-primary" style="text-decoration:none; display:inline-block; line-height:1;">
+                Get the App
+            </a>
         `;
     }
 }
@@ -531,6 +539,76 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     } else {
         updateAuthState();
+    }
+
+    // Smooth scroll for anchor links
+    document.addEventListener('click', function(e) {
+        const link = e.target.closest('a[href^="#"]');
+        if (!link) return;
+        const targetId = link.getAttribute('href').slice(1);
+        if (!targetId) return;
+        const target = document.getElementById(targetId);
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+            // Close mobile menu if open
+            const nav = document.getElementById('navButtons');
+            const toggle = document.getElementById('mobileMenuToggle');
+            if (nav) nav.classList.remove('mobile-open');
+            if (toggle) toggle.classList.remove('active');
+        }
+    });
+
+    // Mobile menu toggle
+    const mobileToggle = document.getElementById('mobileMenuToggle');
+    if (mobileToggle) {
+        mobileToggle.addEventListener('click', function() {
+            const nav = document.getElementById('navButtons');
+            if (nav) nav.classList.toggle('mobile-open');
+            this.classList.toggle('active');
+        });
+    }
+
+    // Waitlist form handler
+    const waitlistForm = document.getElementById('waitlistForm');
+    if (waitlistForm) {
+        waitlistForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = document.getElementById('waitlistEmail').value;
+            const msgEl = document.getElementById('waitlistMessage');
+            const btn = this.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            btn.textContent = 'Submitting...';
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/waitlist`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+                const data = await response.json();
+                msgEl.textContent = data.message || "You're on the list! We'll notify you when we launch.";
+                msgEl.className = 'waitlist-message';
+                msgEl.style.display = 'block';
+                this.reset();
+            } catch (err) {
+                // Offline fallback — still show success
+                msgEl.textContent = "You're on the list! We'll notify you when we launch.";
+                msgEl.className = 'waitlist-message';
+                msgEl.style.display = 'block';
+                this.reset();
+            }
+            btn.disabled = false;
+            btn.textContent = 'Notify Me';
+        });
+    }
+
+    // Handle hash navigation on page load (e.g., from about.html redirect)
+    if (window.location.hash) {
+        const target = document.getElementById(window.location.hash.slice(1));
+        if (target) {
+            setTimeout(() => target.scrollIntoView({ behavior: 'smooth' }), 300);
+        }
     }
 
     // Login form
