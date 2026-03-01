@@ -6,14 +6,14 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #0a0a0a;
+    background-color: #000;
     min-height: 100vh;
     color: #fff;
     position: relative;
     overflow-x: hidden;
 }
 
-/* Realistic 3D Honeycomb Background */
+/* Sparse neon-yellow stars */
 body::before {
     content: '';
     position: fixed;
@@ -23,12 +23,20 @@ body::before {
     height: 100%;
     z-index: 0;
     pointer-events: none;
-    opacity: 0.15;
-    background-color: #0a0a0a;
-    background-image: url('/assets/honeycomb-3d-realistic.jpg');
-    background-size: 400px 300px;
-    background-repeat: repeat;
-    background-position: center;
+    background:
+        radial-gradient(1px 1px at 7% 12%, #E2FF00 50%, transparent 100%),
+        radial-gradient(1px 1px at 23% 38%, #E2FF00 50%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 42% 8%, #E2FF00 50%, transparent 100%),
+        radial-gradient(1px 1px at 58% 52%, #E2FF00 50%, transparent 100%),
+        radial-gradient(1px 1px at 73% 22%, #E2FF00 50%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 89% 65%, #E2FF00 50%, transparent 100%),
+        radial-gradient(1px 1px at 15% 78%, #E2FF00 50%, transparent 100%),
+        radial-gradient(1px 1px at 35% 91%, #E2FF00 50%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 65% 85%, #E2FF00 50%, transparent 100%),
+        radial-gradient(1px 1px at 92% 35%, #E2FF00 50%, transparent 100%),
+        radial-gradient(1px 1px at 50% 28%, #E2FF00 50%, transparent 100%),
+        radial-gradient(1px 1px at 80% 92%, #E2FF00 50%, transparent 100%);
+    opacity: 0.4;
 }
 
 .container {
