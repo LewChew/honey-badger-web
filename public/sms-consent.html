@@ -4,160 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMS Consent Policy - Honey Badger</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/assets/honeycomb_badger_face.svg" type="image/svg+xml">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #e9ecef;
-        }
-
-        h1 {
-            color: #1a1a1a;
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            color: #6c757d;
-            font-size: 1.1rem;
-        }
-
-        .last-updated {
-            color: #868e96;
-            font-size: 0.9rem;
-            margin-top: 10px;
-        }
-
-        section {
-            background: white;
-            border-radius: 8px;
-            padding: 24px;
-            margin-bottom: 20px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            color: #1a1a1a;
-            font-size: 1.25rem;
-            margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #e9ecef;
-        }
-
-        p {
-            margin-bottom: 12px;
-        }
-
-        ul {
-            margin-left: 24px;
-            margin-bottom: 12px;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        .highlight-box {
-            background: #f1f3f4;
-            border-left: 4px solid #4285f4;
-            padding: 16px;
-            margin: 16px 0;
-            border-radius: 0 4px 4px 0;
-        }
-
-        .opt-out-box {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 16px;
-            margin: 16px 0;
-            border-radius: 0 4px 4px 0;
-        }
-
-        .contact-info {
-            background: #e8f5e9;
-            border-left: 4px solid #4caf50;
-            padding: 16px;
-            margin: 16px 0;
-            border-radius: 0 4px 4px 0;
-        }
-
-        code {
-            background: #e9ecef;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'SF Mono', Monaco, Consolas, monospace;
-            font-size: 0.9em;
-        }
-
-        a {
-            color: #4285f4;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #e9ecef;
-            color: #868e96;
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: #868e96;
-        }
+        .legal-content { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+        .legal-header { text-align: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid rgba(226, 255, 0, 0.15); }
+        .legal-header h1 { color: #E2FF00; font-size: 2.2rem; margin-bottom: 8px; }
+        .legal-header .subtitle { color: #999; font-size: 1rem; }
+        .legal-header .last-updated { color: #666; font-size: 0.85rem; margin-top: 8px; }
+        .legal-section { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 24px; margin-bottom: 16px; }
+        .legal-section h2 { color: #E2FF00; font-size: 1.15rem; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid rgba(226, 255, 0, 0.1); }
+        .legal-section p { color: #ccc; margin-bottom: 12px; line-height: 1.7; }
+        .legal-section ul { margin-left: 20px; margin-bottom: 12px; }
+        .legal-section li { color: #ccc; margin-bottom: 8px; line-height: 1.6; }
+        .legal-section strong { color: #fff; }
+        .legal-section em { color: #bbb; }
+        .legal-section a { color: #E2FF00; text-decoration: none; }
+        .legal-section a:hover { text-decoration: underline; }
+        .legal-section code { background: rgba(226, 255, 0, 0.1); color: #E2FF00; padding: 2px 6px; border-radius: 4px; font-family: 'SF Mono', Monaco, Consolas, monospace; font-size: 0.9em; }
+        .legal-highlight { background: rgba(226, 255, 0, 0.06); border-left: 3px solid #E2FF00; padding: 16px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+        .legal-highlight strong { color: #E2FF00; }
+        .legal-warning { background: rgba(255, 193, 7, 0.08); border-left: 3px solid #ffc107; padding: 16px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+        .legal-success { background: rgba(76, 175, 80, 0.08); border-left: 3px solid #4caf50; padding: 16px; margin: 16px 0; border-radius: 0 8px 8px 0; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" style="text-decoration:none;">
+                    <div class="logo">
+                        <img src="/assets/honeycomb_badger_face.svg" alt="Honey Badger" class="logo-icon">
+                        <span class="logo-text">HONEY BADGER</span>
+                    </div>
+                </a>
+                <div class="nav-buttons">
+                    <a href="/" class="nav-link">Home</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="legal-content">
+        <div class="legal-header">
             <h1>SMS Consent Policy</h1>
             <p class="subtitle">Honey Badger Gift Notification Service</p>
-            <p class="last-updated">Last Updated: February 18, 2026</p>
-        </header>
+            <p class="last-updated">Last Updated: March 16, 2026</p>
+        </div>
 
-        <section>
+        <div class="legal-section">
             <h2>About Honey Badger</h2>
             <p>Honey Badger is a gift notification platform that connects gift senders with recipients through SMS and email notifications. Our service allows users to send gifts with motivational challenges, creating meaningful and engaging gifting experiences.</p>
-        </section>
+        </div>
 
-        <section>
+        <div class="legal-section">
             <h2>How We Collect SMS Consent</h2>
             <p>Consent for SMS messages from <strong>Honey Badger</strong> is collected in the following ways:</p>
             <ul>
                 <li><strong>Gift Sender Initiated:</strong> When a user sends a gift through the Honey Badger app, they provide the recipient's phone number. The recipient receives an initial SMS notification about their gift, which includes opt-out instructions. By replying <code>START</code> or <code>YES</code>, the recipient confirms consent to receive additional messages about their challenge.</li>
                 <li><strong>Account Registration Opt-In:</strong> Users who create a Honey Badger account can opt in to receive SMS messages by providing their phone number and checking the consent checkbox, which states: <em>"I agree to receive SMS text messages from Honey Badger regarding gift notifications, challenge reminders, and account updates. Message frequency varies. Message and data rates may apply. Reply STOP to cancel at any time."</em></li>
             </ul>
-            <div class="highlight-box">
+            <div class="legal-highlight">
                 <strong>Consent Language:</strong> By opting in to Honey Badger SMS messages, you agree to receive text messages from <strong>Honey Badger</strong> at the phone number you provide. Consent is not a condition of any purchase. You may revoke consent at any time by replying <code>STOP</code>.
             </div>
-        </section>
+        </div>
 
-        <section>
+        <div class="legal-section">
             <h2>Types of Messages We Send</h2>
             <p>Honey Badger sends the following types of SMS messages:</p>
             <ul>
@@ -166,9 +78,9 @@
                 <li><strong>Completion Confirmations:</strong> Messages confirming when a challenge has been completed and the gift is available.</li>
                 <li><strong>Account Notifications:</strong> Important account-related updates for registered users.</li>
             </ul>
-        </section>
+        </div>
 
-        <section>
+        <div class="legal-section">
             <h2>Message Frequency</h2>
             <p>The frequency of messages varies based on gift and challenge settings:</p>
             <ul>
@@ -177,48 +89,75 @@
                 <li><strong>Completion Message:</strong> One message when the challenge is completed.</li>
             </ul>
             <p>Typical recipients receive 1-5 messages per gift, depending on challenge duration and reminder settings.</p>
-        </section>
+        </div>
 
-        <section>
+        <div class="legal-section">
             <h2>Opting Out</h2>
-            <div class="opt-out-box">
+            <div class="legal-warning">
                 <p><strong>To stop receiving SMS messages from Honey Badger:</strong></p>
                 <p>Reply <code>STOP</code> to any message you receive from us.</p>
                 <p>You will receive a confirmation message and will no longer receive SMS messages from our service.</p>
             </div>
             <p>Note: Opting out of SMS messages will not affect your ability to receive gifts. You can still access gifts through email or the Honey Badger website.</p>
-        </section>
+        </div>
 
-        <section>
+        <div class="legal-section">
             <h2>Getting Help</h2>
-            <div class="contact-info">
+            <div class="legal-success">
                 <p><strong>For SMS assistance:</strong></p>
                 <p>Reply <code>HELP</code> to any message for support information.</p>
             </div>
             <p>You can also contact our support team directly:</p>
             <ul>
-                <li><strong>Email:</strong> support@honeybadger.gifts</li>
+                <li><strong>Email:</strong> support@badgerbot.net</li>
             </ul>
-        </section>
+        </div>
 
-        <section>
+        <div class="legal-section">
             <h2>Carrier Information</h2>
             <p><strong>Message and data rates may apply.</strong> Message frequency varies. Check with your mobile carrier for details about your text messaging plan.</p>
             <p>Carriers are not liable for delayed or undelivered messages.</p>
             <p>Supported carriers include (but are not limited to): AT&T, Verizon, T-Mobile, Sprint, and other major US carriers.</p>
-        </section>
+        </div>
 
-        <section>
+        <div class="legal-section">
             <h2>Privacy &amp; Data Protection</h2>
             <p>Your phone number and personal information are handled in accordance with our <a href="/privacy.html">Privacy Policy</a>. <strong>No mobile information collected as part of the Honey Badger SMS opt-in will be shared with or sold to third parties or affiliates for marketing or promotional purposes.</strong></p>
             <p>We only use your phone number to deliver gift notifications, challenge reminders, completion confirmations, and account-related messages as described in this policy.</p>
             <p>For full details on how we collect, use, and protect your data, please review our <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms of Service</a>.</p>
-        </section>
-
-        <footer>
-            <p><a href="/privacy.html">Privacy Policy</a> | <a href="/terms.html">Terms of Service</a></p>
-            <p>&copy; 2026 Honey Badger. All rights reserved.</p>
-        </footer>
+        </div>
     </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="/assets/honeycomb_badger_face.svg" alt="Honey Badger" class="footer-logo-icon">
+                        <span>HONEY BADGER</span>
+                    </div>
+                    <p class="footer-tagline">AI-powered gift delivery that never gives up.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <a href="/#how-it-works">How It Works</a>
+                    <a href="/#gift-cards">Gift Cards</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <a href="/#waitlist">Join Waitlist</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <a href="/privacy.html">Privacy Policy</a>
+                    <a href="/terms.html">Terms of Service</a>
+                    <a href="/sms-consent.html">SMS Consent</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Honey Badger. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
