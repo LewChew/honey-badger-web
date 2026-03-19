@@ -411,7 +411,7 @@ async function loadHoneyBadgers() {
                 // Hide carousel, show badger list
                 if (carousel) carousel.style.display = 'none';
                 sentList.innerHTML = activeBadgers.map(badger => `
-                    <div class="badger-item">
+                    <div class="badger-item" data-gift-id="${badger.id}">
                         <div class="badger-header">
                             <strong>${badger.recipientName}</strong>
                             <span class="badger-status status-${badger.status}">${badger.status}</span>
@@ -421,6 +421,12 @@ async function loadHoneyBadgers() {
                             <p><strong>Challenge:</strong> ${badger.challenge}</p>
                             <p><strong>Sent:</strong> ${new Date(badger.createdAt).toLocaleDateString()}</p>
                         </div>
+                        ${!badger.unlocked ? `
+                        <div class="badger-actions">
+                            <button class="btn-unlock" onclick="unlockGift('${badger.id}')">Unlock Gift</button>
+                            <button class="btn-nudge" onclick="promptNudge('${badger.id}')">Send Nudge</button>
+                        </div>
+                        ` : ''}
                     </div>
                 `).join('');
             }
@@ -428,6 +434,59 @@ async function loadHoneyBadgers() {
     } catch (error) {
         console.error('Failed to load honey badgers:', error);
     }
+}
+
+// Unlock a gift (sender action)
+async function unlockGift(giftId) {
+    if (!confirm('Are you sure you want to unlock this gift? The recipient will be notified and can claim it immediately.')) {
+        return;
+    }
+
+    try {
+        const result = await makeAPIRequest(`/api/gifts/${giftId}/unlock`, {}, true);
+
+        if (result.success && result.data.success) {
+            alert('Gift unlocked successfully! The recipient has been notified.');
+            // Refresh the sent gifts list to reflect the updated status
+            loadHoneyBadgers();
+        } else {
+            alert(result.data.message || 'Failed to unlock gift. Please try again.');
+        }
+    } catch (error) {
+        console.error('Error unlocking gift:', error);
+        alert('An error occurred while unlocking the gift. Please try again.');
+    }
+}
+
+// Send a nudge SMS to a gift recipient
+async function sendNudge(giftId, customMessage) {
+    try {
+        const body = {};
+        if (customMessage) {
+            body.customMessage = customMessage;
+        }
+
+        const result = await makeAPIRequest(`/api/gifts/${giftId}/nudge`, body, true);
+
+        if (result.success && result.data.success) {
+            alert('Nudge sent! The recipient will receive an SMS reminder.');
+        } else {
+            alert(result.data.message || 'Failed to send nudge. Please try again.');
+        }
+    } catch (error) {
+        console.error('Error sending nudge:', error);
+        alert('An error occurred while sending the nudge. Please try again.');
+    }
+}
+
+// Prompt for optional custom message then send nudge
+function promptNudge(giftId) {
+    const customMessage = prompt('Enter a custom nudge message (or leave blank for default):');
+    // If the user clicked Cancel, do nothing
+    if (customMessage === null) {
+        return;
+    }
+    sendNudge(giftId, customMessage.trim() || undefined);
 }
 
 async function sendHoneyBadger(formData) {

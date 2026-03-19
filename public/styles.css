@@ -1182,6 +1182,56 @@ header {
     padding: 2rem;
 }
 
+/* Badger Action Buttons */
+.badger-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(226, 255, 0, 0.1);
+}
+
+.btn-unlock {
+    background: linear-gradient(135deg, #E2FF00 0%, #B8CC00 100%);
+    color: #1a1a1a;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-unlock:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(226, 255, 0, 0.3);
+    background: linear-gradient(135deg, #FFE55C 0%, #E2FF00 100%);
+}
+
+.btn-nudge {
+    background: transparent;
+    color: #E2FF00;
+    border: 1.5px solid #E2FF00;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-nudge:hover {
+    background: #E2FF00;
+    color: #1a1a1a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(226, 255, 0, 0.3);
+}
+
 /* Send Panel */
 .send-panel {
     background: rgba(255, 255, 255, 0.05);
