@@ -23,6 +23,7 @@ export default defineConfig({
         privacy: resolve(__dirname, 'public/privacy.html'),
         terms: resolve(__dirname, 'public/terms.html'),
         smsConsent: resolve(__dirname, 'public/sms-consent.html'),
+        smsTerms: resolve(__dirname, 'public/sms-terms.html'),
       }
     }
   }
