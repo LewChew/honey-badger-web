@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honey Badger Gift Challenges - Honey Badger AI</title>
+    <meta name="description" content="Send a gift card or cash locked behind a fun challenge. Honey Badger texts the recipient and coaches them with AI motivation until they unlock it.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/assets/hb-cyber-honeycomb.svg" type="image/svg+xml">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo-link">
+                    <div class="logo">
+                        <img src="/assets/hb-cyber-honeycomb.svg" alt="Honey Badger AI" class="logo-icon logo-icon-hb">
+                        <span class="logo-text">HONEY BADGER AI</span>
+                    </div>
+                </a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <div class="nav-buttons" id="navButtons">
+                    <a href="/#products" class="nav-link">Products</a>
+                    <a href="#how-it-works" class="nav-link">How It Works</a>
+                    <a href="/#login" class="btn-secondary" style="text-decoration:none; display:inline-block; line-height:1;">
+                        Login
+                    </a>
+                    <a href="#waitlist" class="btn-primary" style="text-decoration:none; display:inline-block; line-height:1;">
+                        Get Notified
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="landingPage">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="/">Honey Badger AI</a>
+                <span class="breadcrumb-sep">/</span>
+                <span>Gift Challenges</span>
+            </nav>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="marketing-section hero-section">
+            <div class="container">
+                <div class="hero-centered">
+                    <h1 class="hero-heading" style="text-align:center;">
+                        <span class="word-carousel">
+                            <span class="carousel-word active">Send</span>
+                            <span class="carousel-word">Unlock</span>
+                            <span class="carousel-word">Relish</span>
+                        </span>
+                        <span class="fixed-text">a Honey Badger</span>
+                    </h1>
+                    <p class="hero-subtitle" style="text-align:center;">AI-powered gift challenges that delight. A Honey Badger AI product.</p>
+
+                    <!-- TV Carousel -->
+                    <div class="hero-tv-frame" id="heroTvFrame">
+                        <div class="hero-tv-slides" id="heroTvSlides">
+                            <div class="hero-tv-slide active">
+                                <img src="/assets/retro-hb-tv.png" alt="Honey Badger Retro TV">
+                            </div>
+                            <div class="hero-tv-slide">
+                                <img src="/assets/honey-badger-tv-retro.png" alt="Honey Badger Retro TV">
+                            </div>
+                            <div class="hero-tv-slide">
+                                <img src="/assets/Honey_Badger_tv.svg" alt="Honey Badger TV">
+                            </div>
+                            <div class="hero-tv-slide">
+                                <img src="/assets/CyberBadger.png" alt="Cyber Badger">
+                            </div>
+                            <div class="hero-tv-slide">
+                                <img src="/assets/Honey_badger_gift.svg" alt="Honey Badger Gift">
+                            </div>
+                            <div class="hero-tv-slide">
+                                <img src="/assets/honey_badger.svg" alt="Honey Badger">
+                            </div>
+                            <div class="hero-tv-slide">
+                                <img src="/assets/HB-logo.svg" alt="HB Logo">
+                            </div>
+                        </div>
+                        <div class="hero-tv-scanline"></div>
+                    </div>
+                    <div class="hero-tv-dots" id="heroTvDots">
+                        <button class="hero-tv-dot active" data-index="0"></button>
+                        <button class="hero-tv-dot" data-index="1"></button>
+                        <button class="hero-tv-dot" data-index="2"></button>
+                        <button class="hero-tv-dot" data-index="3"></button>
+                        <button class="hero-tv-dot" data-index="4"></button>
+                        <button class="hero-tv-dot" data-index="5"></button>
+                        <button class="hero-tv-dot" data-index="6"></button>
+                    </div>
+
+                    <div class="hero-cta" style="justify-content:center;">
+                        <a href="#get-app" class="app-store-badge-link">
+                            <img src="/assets/app-store-badge.svg" alt="Download on the App Store" class="app-store-badge">
+                            <span class="coming-soon-label">Coming Soon</span>
+                        </a>
+                        <a href="#waitlist" class="btn-secondary get-notified-link">Get Notified</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- How It Works -->
+        <section class="marketing-section marketing-section-alt" id="how-it-works">
+            <div class="container">
+                <h2 class="section-heading">How It Works</h2>
+                <p class="section-subheading">Turn any gift into a fun challenge your friends and family will love.</p>
+
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-card-num">1</div>
+                        <div class="step-card-icon-wrap">
+                            <img src="/assets/Honey_badger_gift.svg" alt="Pick a Gift" class="step-card-icon">
+                        </div>
+                        <h3 class="step-card-title">Pick a Gift</h3>
+                        <p class="step-card-desc">Choose a gift card, cash, or any reward. Amazon, Starbucks, Venmo — whatever they'll love.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-card-num">2</div>
+                        <div class="step-card-icon-wrap">
+                            <span class="step-card-emoji">🎯</span>
+                        </div>
+                        <h3 class="step-card-title">Set a Challenge</h3>
+                        <p class="step-card-desc">Create a fun unlock challenge — a selfie, a fitness goal, a gratitude list. You decide what earns the reward.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-card-num">3</div>
+                        <div class="step-card-icon-wrap">
+                            <img src="/assets/honeycomb_badger_face.svg" alt="Badger Delivers" class="step-card-icon">
+                        </div>
+                        <h3 class="step-card-title">Badger Delivers</h3>
+                        <p class="step-card-desc">We notify your recipient via text and coach them through the challenge with AI-powered motivation until they unlock their gift.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Incentive Ideas -->
+        <section class="marketing-section" id="ideas">
+            <div class="container">
+                <h2 class="section-heading">Set Incentives for Anyone</h2>
+                <p class="section-subheading">Real ways people use Honey Badger to motivate the people they care about.</p>
+
+                <div class="scenarios-grid">
+                    <div class="scenario-card">
+                        <div class="scenario-icon">👨‍👧</div>
+                        <h3 class="scenario-title">Parents & Kids</h3>
+                        <p class="scenario-example">"Complete 5 chores this week" → unlock a $25 Fortnite gift card</p>
+                        <p class="scenario-example">"Read 3 chapters" → unlock a Dunkin' treat</p>
+                    </div>
+                    <div class="scenario-card">
+                        <div class="scenario-icon">👯</div>
+                        <h3 class="scenario-title">Friends</h3>
+                        <p class="scenario-example">"Share a selfie at the gym" → unlock a Lululemon card</p>
+                        <p class="scenario-example">"Try a new recipe and send a pic" → unlock a Starbucks card</p>
+                    </div>
+                    <div class="scenario-card">
+                        <div class="scenario-icon">💪</div>
+                        <h3 class="scenario-title">Fitness & Wellness</h3>
+                        <p class="scenario-example">"Run a 5K and share your time" → unlock a Dick's Sporting Goods card</p>
+                        <p class="scenario-example">"Meditate 7 days in a row" → unlock a spa gift card</p>
+                    </div>
+                    <div class="scenario-card">
+                        <div class="scenario-icon">🎓</div>
+                        <h3 class="scenario-title">Milestones & Goals</h3>
+                        <p class="scenario-example">"Submit your college application" → unlock an Amazon card</p>
+                        <p class="scenario-example">"Finish your online course" → unlock a Venmo cash gift</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Supported Gift Cards -->
+        <section class="marketing-section marketing-section-alt" id="gift-cards">
+            <div class="container">
+                <h2 class="section-heading">Supported Gift Cards</h2>
+                <div class="gift-cards-grid-marketing">
+                    <div class="gift-card-tag">Dick's Sporting Goods</div>
+                    <div class="gift-card-tag">Fortnite</div>
+                    <div class="gift-card-tag">Sephora</div>
+                    <div class="gift-card-tag">Lululemon</div>
+                    <div class="gift-card-tag">Starbucks</div>
+                    <div class="gift-card-tag">Dunkin'</div>
+                    <div class="gift-card-tag">Amazon</div>
+                    <div class="gift-card-tag">Venmo</div>
+                    <div class="gift-card-tag">PayPal</div>
+                    <div class="gift-card-tag">And more...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Get the App CTA -->
+        <section class="marketing-section get-app-section" id="get-app">
+            <div class="container">
+                <div class="get-app-grid">
+                    <div class="get-app-text">
+                        <h2 class="section-heading" style="text-align:left;">Get the Honey Badger App</h2>
+                        <p class="get-app-desc">Coming soon to the App Store.</p>
+                        <a href="#waitlist" class="app-store-badge-link">
+                            <img src="/assets/app-store-badge.svg" alt="Download on the App Store" class="app-store-badge">
+                            <span class="coming-soon-label">Coming Soon</span>
+                        </a>
+                    </div>
+                    <div class="get-app-image">
+                        <img src="/assets/CyberBadger.png" alt="Honey Badger App" class="get-app-badger">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Waitlist -->
+        <section class="marketing-section" id="waitlist">
+            <div class="container">
+                <div class="waitlist-container">
+                    <h2 class="section-heading">Get Notified When We Launch</h2>
+                    <p class="section-subheading">Be the first to send a Honey Badger from the app.</p>
+                    <form id="waitlistForm" class="waitlist-form">
+                        <div class="waitlist-input-group">
+                            <input type="email" id="waitlistEmail" placeholder="Enter your email" required>
+                            <button type="submit" class="btn-primary">Notify Me</button>
+                        </div>
+                        <p class="waitlist-message" id="waitlistMessage" style="display:none;"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-grid footer-grid-4">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <img src="/assets/hb-cyber-honeycomb.svg" alt="Honey Badger AI" class="footer-logo-icon">
+                            <span>HONEY BADGER AI</span>
+                        </div>
+                        <p class="footer-tagline">An AI software company building apps that never give up.</p>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Products</h4>
+                        <a href="https://seawolf.live" target="_blank" rel="noopener">SeaWolf</a>
+                        <a href="/gifts.html">Gift Challenges</a>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Company</h4>
+                        <a href="/#about">About</a>
+                        <a href="/#contact">Contact</a>
+                        <a href="/#login">Login</a>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Legal</h4>
+                        <a href="/privacy.html">Privacy Policy</a>
+                        <a href="/terms.html">Terms of Service</a>
+                        <a href="/sms-consent.html">SMS Consent</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Honey Badger AI, LLC. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+    // Marketing-page behaviors (carousels, mobile menu, waitlist). Kept inline so this
+    // product page does not depend on the main app bundle in script.js.
+    (function () {
+        var API_BASE_URL = window.location.hostname === 'localhost'
+            ? 'http://localhost:3000'
+            : 'https://api.honeybadger.com';
+
+        function startWordCarousel() {
+            var words = document.querySelectorAll('.carousel-word');
+            if (!words.length) return;
+            var i = 0;
+            setInterval(function () {
+                words[i].classList.remove('active');
+                i = (i + 1) % words.length;
+                words[i].classList.add('active');
+            }, 2000);
+        }
+
+        function initHeroTVCarousel() {
+            var slides = document.querySelectorAll('.hero-tv-slide');
+            var dots = document.querySelectorAll('.hero-tv-dot');
+            if (!slides.length) return;
+            var current = 0, timer = null;
+            function goTo(index) {
+                slides[current].classList.remove('active');
+                dots[current].classList.remove('active');
+                current = index;
+                slides[current].classList.add('active');
+                dots[current].classList.add('active');
+            }
+            function resetTimer() {
+                clearInterval(timer);
+                timer = setInterval(function () { goTo((current + 1) % slides.length); }, 5000);
+            }
+            dots.forEach(function (dot) {
+                dot.addEventListener('click', function () {
+                    goTo(parseInt(this.dataset.index, 10));
+                    resetTimer();
+                });
+            });
+            resetTimer();
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            startWordCarousel();
+            initHeroTVCarousel();
+
+            var mobileToggle = document.getElementById('mobileMenuToggle');
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function () {
+                    var nav = document.getElementById('navButtons');
+                    if (nav) nav.classList.toggle('mobile-open');
+                    this.classList.toggle('active');
+                });
+            }
+
+            document.addEventListener('click', function (e) {
+                var link = e.target.closest('a[href^="#"]');
+                if (!link) return;
+                var target = document.getElementById(link.getAttribute('href').slice(1));
+                if (!target) return;
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+                var nav = document.getElementById('navButtons');
+                var toggle = document.getElementById('mobileMenuToggle');
+                if (nav) nav.classList.remove('mobile-open');
+                if (toggle) toggle.classList.remove('active');
+            });
+
+            var waitlistForm = document.getElementById('waitlistForm');
+            if (waitlistForm) {
+                waitlistForm.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+                    var email = document.getElementById('waitlistEmail').value;
+                    var msgEl = document.getElementById('waitlistMessage');
+                    var btn = this.querySelector('button[type="submit"]');
+                    btn.disabled = true;
+                    btn.textContent = 'Submitting...';
+                    var message = "You're on the list! We'll notify you when we launch.";
+                    try {
+                        var response = await fetch(API_BASE_URL + '/api/waitlist', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ email: email })
+                        });
+                        var data = await response.json();
+                        if (data && data.message) message = data.message;
+                    } catch (err) {
+                        // Offline fallback: still confirm to the visitor.
+                    }
+                    msgEl.textContent = message;
+                    msgEl.className = 'waitlist-message';
+                    msgEl.style.display = 'block';
+                    this.reset();
+                    btn.disabled = false;
+                    btn.textContent = 'Notify Me';
+                });
+            }
+
+            if (window.location.hash) {
+                var target = document.getElementById(window.location.hash.slice(1));
+                if (target) setTimeout(function () { target.scrollIntoView({ behavior: 'smooth' }); }, 300);
+            }
+        });
+    })();
+    </script>
+</body>
+</html>

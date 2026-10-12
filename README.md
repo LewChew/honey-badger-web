@@ -1,10 +1,12 @@
-# Honey Badger AI Gifts - Web Frontend
+# Honey Badger AI - Corporate Website & Gift Challenges Web Frontend
 
-Single Page Application (SPA) frontend for Honey Badger AI Gifts.
+Website for **Honey Badger AI, LLC** (badgerbot.net) plus the web frontend for the Honey Badger Gift Challenges app.
 
 ## Overview
 
-This is the web-based user interface for the Honey Badger AI Gifts platform. Users can create accounts, send motivational gift challenges to recipients, manage their network of contacts, and interact with the AI chatbot.
+`index.html` is the corporate landing page for Honey Badger AI: company intro, product lineup (SeaWolf, Honey Badger Gift Challenges, and upcoming apps), about, and contact. When a user logs in, the same page swaps the landing content for the Gift Challenges dashboard (send gifts, manage contacts, AI chatbot).
+
+`gifts.html` is the dedicated marketing page for Honey Badger Gift Challenges (how it works, incentive ideas, supported gift cards, app waitlist). Legal pages live alongside it.
 
 ## Tech Stack
 
@@ -42,8 +44,12 @@ Ensure the backend API is running on `http://localhost:3000`. The frontend is co
 ```
 honey-badger-web/
 ├── public/                 # Static files (served from root)
-│   ├── index.html          # Main application page
-│   ├── about.html          # About/landing page
+│   ├── index.html          # Corporate landing page + logged-in app dashboard
+│   ├── gifts.html          # Honey Badger Gift Challenges product page
+│   ├── about.html          # Redirects to /#about
+│   ├── privacy.html        # Privacy policy
+│   ├── terms.html          # Terms of service
+│   ├── sms-consent.html    # SMS consent (sms-terms.html is a copy)
 │   ├── styles.css          # All CSS styling
 │   ├── script.js           # Main application logic
 │   └── app.js              # Alternative app structure
@@ -289,7 +295,7 @@ This is a proprietary project. Contact the development team for contribution gui
 
 ## License
 
-Proprietary - Honey Badger AI Gifts
+Proprietary - Honey Badger AI, LLC
 
 ## Support
 

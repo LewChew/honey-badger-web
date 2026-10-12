@@ -20,6 +20,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'public/index.html'),
         about: resolve(__dirname, 'public/about.html'),
+        gifts: resolve(__dirname, 'public/gifts.html'),
         privacy: resolve(__dirname, 'public/privacy.html'),
         terms: resolve(__dirname, 'public/terms.html'),
         smsConsent: resolve(__dirname, 'public/sms-consent.html'),

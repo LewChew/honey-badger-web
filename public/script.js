@@ -289,7 +289,7 @@ async function makeAPIRequest(endpoint, data, requiresAuth = false) {
 
 // Authentication functions
 async function login(email, password) {
-    const result = await makeAPIRequest('/api/login`, {
+    const result = await makeAPIRequest('/api/login', {
         loginEmail: email,
         loginPassword: password
     });
@@ -307,7 +307,7 @@ async function login(email, password) {
 }
 
 async function signup(userData) {
-    const result = await makeAPIRequest('/api/signup`, {
+    const result = await makeAPIRequest('/api/signup', {
         signupName: userData.name,
         signupEmail: userData.email,
         signupPassword: userData.password,
@@ -334,7 +334,7 @@ async function signup(userData) {
 
 async function logout() {
     if (authToken) {
-        await makeAPIRequest('/api/auth/logout`, {}, true);
+        await makeAPIRequest('/api/auth/logout', {}, true);
     }
     
     localStorage.removeItem('authToken');
@@ -374,24 +374,21 @@ function updateAuthState() {
         landingPage.style.display = 'block';
         dashboard.style.display = 'none';
         
-        // Reset header buttons
+        // Reset header buttons (must match the nav in index.html)
         headerButtons.innerHTML = `
-            <a href="#how-it-works" class="nav-link">How It Works</a>
-            <a href="#gift-cards" class="nav-link">Gift Cards</a>
-            <a href="#get-app" class="nav-link">Get the App</a>
+            <a href="#products" class="nav-link">Products</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contact</a>
             <button class="btn-secondary" onclick="showModal('loginModal')">
                 Login
             </button>
-            <a href="#get-app" class="btn-primary" style="text-decoration:none; display:inline-block; line-height:1;">
-                Get the App
-            </a>
         `;
     }
 }
 
 async function loadHoneyBadgers() {
     try {
-        const result = await makeAPIRequest('/api/honey-badgers`, {}, true);
+        const result = await makeAPIRequest('/api/honey-badgers', {}, true);
 
         if (result.success && result.data.success) {
             const honeyBadgers = result.data.honeyBadgers;
@@ -523,7 +520,7 @@ async function sendHoneyBadger(formData) {
             completeData.giftValue = 'Mystery Gift';
     }
     
-    const result = await makeAPIRequest('/api/send-honey-badger`, completeData, true);
+    const result = await makeAPIRequest('/api/send-honey-badger', completeData, true);
     
     if (result.success && result.data.success) {
         alert(`🍯 Honey Badger sent successfully!\nTracking ID: ${result.data.trackingId}`);
@@ -701,8 +698,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Handle hash navigation on page load (e.g., from about.html redirect)
-    if (window.location.hash) {
+    // Handle hash navigation on page load (e.g., from about.html redirect or product pages)
+    if (window.location.hash === '#login') {
+        // Product and legal pages link here to open the login modal on the main app page
+        if (!authToken) showModal('loginModal');
+        history.replaceState(null, '', window.location.pathname);
+    } else if (window.location.hash) {
         const target = document.getElementById(window.location.hash.slice(1));
         if (target) {
             setTimeout(() => target.scrollIntoView({ behavior: 'smooth' }), 300);
