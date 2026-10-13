@@ -1,3 +1,9 @@
+:root {
+    /* Typewriter type system */
+    --font-body: 'Courier Prime', 'Courier New', Courier, monospace;
+    --font-display: 'Special Elite', 'Courier Prime', 'Courier New', Courier, monospace;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,7 +11,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: var(--font-body);
     background-color: #000;
     min-height: 100vh;
     color: #fff;
@@ -262,7 +268,8 @@ header {
         inset -2px 0 3px rgba(0, 0, 0, 0.3);
     text-transform: uppercase;
     letter-spacing: 3px;
-    font-family: Impact, 'Arial Black', sans-serif;
+    font-family: var(--font-display);
+    font-weight: 400;
     text-shadow:
         2px 2px 4px rgba(0, 0, 0, 0.8),
         -1px -1px 2px rgba(255, 255, 255, 0.2),
@@ -724,7 +731,8 @@ header {
     color: #E2FF00;
     font-size: 2rem;
     margin-bottom: 0.5rem;
-    font-family: Impact, 'Arial Black', sans-serif;
+    font-family: var(--font-display);
+    font-weight: 400;
     font-weight: 900;
     letter-spacing: 2px;
     text-shadow:
@@ -1529,7 +1537,8 @@ header {
     color: #FFFFFF;
     font-size: 2rem;
     font-weight: 900;
-    font-family: Impact, 'Arial Black', sans-serif;
+    font-family: var(--font-display);
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 1px;
     text-shadow:
@@ -1587,7 +1596,8 @@ header {
     color: #FFFFFF;
     font-size: 1.3rem;
     font-weight: 900;
-    font-family: Impact, 'Arial Black', sans-serif;
+    font-family: var(--font-display);
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 1px;
     text-shadow:
@@ -3624,5 +3634,55 @@ header {
     }
     .footer-grid-4 {
         grid-template-columns: 1fr;
+    }
+}
+
+
+/* ======================================
+   TYPEWRITER TYPOGRAPHY
+   ====================================== */
+h1, h2, h3, h4, h5, h6,
+.logo-text,
+.section-heading,
+.hero-heading,
+.corp-eyebrow,
+.nav-link,
+.btn-primary,
+.btn-secondary,
+.btn,
+.product-badge,
+.footer-links h4,
+.footer-app h4,
+.footer-logo,
+.coming-soon-label,
+.step-card-title,
+.scenario-title,
+.product-name,
+.value-card h3,
+.contact-label {
+    font-family: var(--font-display);
+    font-weight: 400;
+}
+button, input, select, textarea {
+    font-family: inherit;
+}
+.corp-hero-heading {
+    font-size: 3.1rem;
+    letter-spacing: -0.5px;
+}
+.hero-heading {
+    font-weight: 400;
+}
+.btn-primary, .btn-secondary {
+    letter-spacing: 1px;
+}
+@media (max-width: 768px) {
+    .corp-hero-heading {
+        font-size: 2.2rem;
+    }
+}
+@media (max-width: 480px) {
+    .corp-hero-heading {
+        font-size: 1.75rem;
     }
 }
